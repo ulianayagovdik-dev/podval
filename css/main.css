@@ -12,7 +12,7 @@ nav {
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 1000; /* поверх всего остального */
+    z-index: 1000;
     display: flex;
     justify-content: flex-end;
     padding: 1.1vw 1.5vw;
@@ -45,7 +45,8 @@ nav a:hover {
 .main_pic{
     position: absolute;
     width: 100%;  
-    height: 71.96vw;
+    /* height: 71.96vw; */
+    height: 100%;
     z-index: -1;
 }
 
