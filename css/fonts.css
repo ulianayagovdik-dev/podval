@@ -1,5 +1,59 @@
-    @font-face {
+@font-face {
     font-family: "Inter_Regular";
     src: url(../fonts/Inter_18pt-Regular.ttf) format("truetype");
+    font-weight: 400;
+    font-style: normal;}
+
+@font-face {
+    font-family: "Inter_Bold";
+    src: url(../fonts/Inter_18pt-Bold.ttf) format("truetype");
+    font-weight: 700;
+    font-style: normal;}
+
+@font-face {
+    font-family: "CoFoSans_Regular";
+    src: url(../fonts/CoFoSans-Regular-Trial.otf) format("truetype");
+    font-weight: 400;
+    font-style: normal;}
+
+@font-face {
+    font-family: "CoFoSans_Bold";
+    src: url(../fonts/CoFoSans-Bold-Trial.otf) format("truetype");
+    font-weight: 700;
+    font-style: normal;}
+
+@font-face {
+    font-family: "CoFoSans_Med";
+    src: url(../fonts/CoFoSans-Medium-Trial.otf) format("truetype");
+    font-weight: 500;
+    font-style: normal;}
+
+@font-face {
+    font-family: "Unbouded_Regular";
+    src: url(../fonts/Unbounded-Regular.ttf) format("truetype");
+    font-weight: 400;
+    font-style: normal;}
+
+@font-face {
+    font-family: "Unbouded_Black";
+    src: url(../fonts//Unbounded-Black.ttf) format("truetype");
+    font-weight: 600;
+    font-style: normal;}
+
+@font-face {
+    font-family: "Unbouded_Bold";
+    src: url(../fonts//Unbounded-Bold.ttf) format("truetype");
+    font-weight: 800;
+    font-style: normal;}
+
+@font-face {
+    font-family: "Unbouded_Light";
+    src: url(../fonts//Unbounded-Light.ttf) format("truetype");
+    font-weight: 300;
+    font-style: normal;}
+
+@font-face {
+    font-family: "Opsilon";
+    src: url(../fonts/ofont.ru_Opsilon.ttf) format("truetype");
     font-weight: 400;
     font-style: normal;}

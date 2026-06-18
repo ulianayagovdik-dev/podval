@@ -1,0 +1,176 @@
+.s_error{
+    width: 100vw;
+    height: 55vw;
+}
+
+.h404{
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    position: relative;
+    color: blue;
+    font-size: 18vw;
+    font-family: "Opsilon";
+    padding-top: 15vw;
+    /* height: 40vw; */
+    animation: error 0.9s infinite linear;
+}
+
+@keyframes error {
+    0% {font-family: "Opsilon";}
+    25% {font-family: "Inter_Regular";}
+    50% {font-family: "Unbouded_Bold";}
+    75% {font-family: "Opsilon";}
+    100% {font-family: "CoFoSans_Regular";}
+}
+
+.p_er1, .p_er2{
+    color: rgb(255, 255, 255);
+    font-size: 1.8vw;
+    font-family: "CoFoSans_Regular";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+}
+
+.p_er2{
+    font-size: 1.18vw;
+    margin-top: 14vw;
+    animation: text2 0.8s linear infinite;
+}
+
+@keyframes text2 {
+    0% {font-family: "Unbouded_Light";}
+    25% {font-family: "CoFoSans_Regular";}
+    50% {font-family: "CoFoSans_Med";}
+    75% {font-family: "Inter_Bold";}
+    100% {font-family: "Unbouded_Bold";}
+}
+
+.p_er2:hover{text-decoration: underline;}
+
+
+/* popup community */
+
+.popup_community{
+    position: absolute;
+    top: 7vw;
+    left: 30vw;
+    /* justify-content: center; */
+    z-index: 10;
+    background: #ffffff;
+    color: rgb(0, 0, 0);
+    display: flex;
+    flex-direction: column;
+    width: 42.15vw;
+    height: 35.14vw;
+    border: 0.2vw solid rgb(0, 0, 0);
+    border-radius: 0.9vw;
+    opacity: 1;
+    z-index: 4;
+    cursor: default;
+}
+
+.cancel{
+    width: 2vw;
+    height: 2vw;
+    margin-top: 1.2vw;
+    margin-left: 39vw;
+    cursor: pointer;
+    /* position: relative;
+    z-index: 10; */
+}
+
+.pop_h{
+    margin-top: 2vw;
+    font-size: 3.13vw;
+    font-family: "Opsilon";
+    text-align: center;
+}
+
+input, select{
+    border: 0.04vw;
+    height: 3.13vw;
+    background: #E9E9E9;
+    padding-left: 0.6vw;
+}
+
+.ia{width: 15.49vw;}
+
+.div_in2{
+    display: flex;
+    gap: 1.16vw;
+}
+
+.ii{
+    width: 32.15vw;
+    height: 6.46vw;
+    font-size: 1.18vw;
+   font-family: "CoFoSans_Regular";}
+
+.a{font-size: 1.18vw;
+   font-family: "CoFoSans_Regular";}
+
+.done{
+    width: 12.08vw;
+    height: 3.33vw;
+    background: #898989;
+    color: #ffffff;
+    border-radius: 0.56vw;
+    margin: 0vw auto;
+    top: 2vw;
+    display: flex;
+    position: relative;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-family: "CoFoSans_Regular";
+}
+
+.done:active{
+    background: #17299b;}
+
+.div_in{
+    width: 32.22vw;
+    height: 12.01vw;
+    margin-left: 5vw;
+    margin-top: 2.43vw;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25vw;
+}
+
+/* none */
+.burger, .third_screen_adaptive{
+    display: none;
+}
+
+#f{
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    position: relative;
+    color: rgb(255, 255, 255);
+    font-size: 13vw;
+    font-family: "Opsilon";
+    padding-top: 20vw;
+    /* height: 40vw; */
+    /* animation: error 0.9s infinite linear; */
+    animation: t 0.8s infinite linear;
+    /* font-size: 30vw; */
+    margin: 0 auto;
+}
+
+@keyframes t {
+    0% {font-family: "Opsilon";}
+    25% {font-family: "CoFoSans_Bold";}
+    50% {font-family: "Unbouded_Bold";}
+    75% {font-family: "CoFoSans_Regular";}
+    100% {font-family: "Opsilon";}
+}
+
+#g{
+    background: #000000;
+}

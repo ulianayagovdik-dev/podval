@@ -1,0 +1,440 @@
+document.addEventListener('DOMContentLoaded', function(){
+
+
+// Подсветка активной страницы в меню
+const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+document.querySelectorAll('nav a').forEach(link => {
+    if (link.getAttribute('href') === currentPage) {
+        link.classList.add('active');
+    }
+});
+
+
+// popup_community — закрывается крестиком, открывается кликом на .ev_card и .t (.t1/.t2/.t3)
+const popupCommunity = document.querySelector('.popup_community');
+
+if (popupCommunity) {
+    // изначально скрыт (попап есть на events.html и community.html)
+    popupCommunity.style.opacity = '0';
+    popupCommunity.style.pointerEvents = 'none';
+
+    const openPopup = () => {
+        popupCommunity.style.opacity = '1';
+        popupCommunity.style.pointerEvents = 'auto';
+    };
+    const closePopup = () => {
+        popupCommunity.style.opacity = '0';
+        popupCommunity.style.pointerEvents = 'none';
+    };
+
+    const popupCancel = popupCommunity.querySelector('.cancel');
+    if (popupCancel) {
+        popupCancel.addEventListener('click', closePopup);
+    }
+
+    // кнопка "готово" — закрывает попап, если все поля заполнены, иначе алерт
+    const popupDone = popupCommunity.querySelector('.done');
+    if (popupDone) {
+        popupDone.style.cursor = 'pointer';
+        popupDone.addEventListener('click', () => {
+            const fields = popupCommunity.querySelectorAll('input, select');
+            const allFilled = Array.from(fields).every(f => f.value.trim() !== '');
+            if (allFilled) {
+                closePopup();
+            } else {
+                alert('Необходимо заполнить все поля');
+            }
+        });
+    }
+
+    // ev_card (events.html) и t1/t2/t3 (community.html) — открывают попап
+    document.querySelectorAll('.ev_card, .t').forEach(trigger => {
+        trigger.style.cursor = 'pointer';
+        trigger.addEventListener('click', openPopup);
+    });
+}
+
+
+// third_screen_adaptive — аккордеон артистов (мобилка index.html)
+const adaptiveSection = document.querySelector('.third_screen_adaptive');
+if (adaptiveSection) {
+    const artNamesAdaptive = adaptiveSection.querySelectorAll('.h_art');
+    artNamesAdaptive.forEach(name => {
+        name.addEventListener('click', () => {
+            const block = name.parentElement;
+            if (!block) return;
+            const wasOpen = block.classList.contains('open');
+            // закрываем всё
+            artNamesAdaptive.forEach(n => n.parentElement && n.parentElement.classList.remove('open'));
+            // открываем кликнутый, если он был закрыт
+            if (!wasOpen) block.classList.add('open');
+        });
+    });
+}
+
+
+// плавное увеличение картинки в a_blok1 (about.html) по скроллу
+const aBlok1 = document.querySelector('.a_blok1');
+const aBlok1Sticky = document.querySelector('.a_blok1_sticky');
+// const aBlok1Img = aBlok1Sticky ? aBlok1Sticky.querySelector('img') : null;
+const aBlok1Img = aBlok1Sticky ? aBlok1Sticky.querySelector('video') : null;
+
+if (aBlok1 && aBlok1Sticky && aBlok1Img) {
+    // целевые размеры начального состояния
+    const INIT_W_VW = 67.15;
+    const INIT_H_VW = 39.58;
+
+    let initScaleX = 1, initScaleY = 1, initTranslateY = 0;
+
+    // пересчитываем стартовый transform: масштаб до 67.15×39.58vw и сдвиг к центру блока
+    const computeInitTransform = () => {
+        const imgW = aBlok1Img.offsetWidth;
+        const imgH = aBlok1Img.offsetHeight;
+        const winW = window.innerWidth;
+        const winH = window.innerHeight;
+
+        const targetW = winW * INIT_W_VW / 100;
+        const targetH = winW * INIT_H_VW / 100;
+
+        initScaleX = targetW / imgW;
+        initScaleY = targetH / imgH;
+
+        // центр картинки во flex-потоке относительно sticky (которая при активной анимации = viewport top)
+        const imgFlexCenterY = aBlok1Img.offsetTop + imgH / 2;
+        initTranslateY = winH / 2 - imgFlexCenterY;
+    };
+
+    const updateABlok1 = () => {
+        const rect = aBlok1.getBoundingClientRect();
+        const sectionHeight = aBlok1.offsetHeight;
+        const windowHeight = window.innerHeight;
+        const scrolled = -rect.top;
+        const total = sectionHeight - windowHeight;
+        const progress = Math.min(1, Math.max(0, scrolled / total));
+        // прогресс 0 — картинка 67.15×39.58vw по центру; 1 — родной размер 22×9vw на flex-месте
+        const sX = initScaleX + progress * (1 - initScaleX);
+        const sY = initScaleY + progress * (1 - initScaleY);
+        const tY = initTranslateY * (1 - progress);
+        aBlok1Img.style.transform = `translate(0, ${tY}px) scale(${sX}, ${sY})`;
+    };
+
+    let tickingA1 = false;
+    const onABlok1Scroll = () => {
+        if (tickingA1) return;
+        tickingA1 = true;
+        requestAnimationFrame(() => {
+            updateABlok1();
+            tickingA1 = false;
+        });
+    };
+
+    [window, document, document.body, document.documentElement].forEach(t => {
+        t.addEventListener('scroll', onABlok1Scroll, { passive: true });
+    });
+    window.addEventListener('resize', () => {
+        computeInitTransform();
+        onABlok1Scroll();
+    });
+    window.addEventListener('load', () => {
+        computeInitTransform();
+        updateABlok1();
+    });
+    computeInitTransform();
+    updateABlok1();
+}
+
+
+// анимация секции a_blok3 (about.html): у каждого слова свой блок,
+// при переходе к следующему слову предыдущий блок уходит
+const aBlok3 = document.querySelector('.a_blok3');
+const aBlok3Sticky = document.querySelector('.a_blok3_sticky');
+const valueImages = aBlok3 ? aBlok3.querySelectorAll('.value_image') : [];
+const valueWords = aBlok3 ? aBlok3.querySelectorAll('.scroll_about > p') : [];
+
+if (aBlok3 && aBlok3Sticky && valueImages.length && valueWords.length) {
+    // ставим каждый блок так, чтобы его вертикальный центр совпадал с центром своего слова
+    const positionImages = () => {
+        const stickyRect = aBlok3Sticky.getBoundingClientRect();
+        valueImages.forEach((img, i) => {
+            const word = valueWords[i];
+            if (!word) return;
+            const wordRect = word.getBoundingClientRect();
+            const wordCenterY = wordRect.top + wordRect.height / 2 - stickyRect.top;
+            img.style.top = (wordCenterY - img.offsetHeight / 2) + 'px';
+        });
+    };
+
+    const updateABlok3 = () => {
+        const rect = aBlok3.getBoundingClientRect();
+        const sectionHeight = aBlok3.offsetHeight;
+        const windowHeight = window.innerHeight;
+        const scrolled = -rect.top;
+        const total = sectionHeight - windowHeight;
+        const progress = Math.min(1, Math.max(0, scrolled / total));
+
+        const n = valueWords.length;
+        let activeIdx = Math.floor(progress * n);
+        if (activeIdx >= n) activeIdx = n - 1;
+        if (activeIdx < 0) activeIdx = 0;
+
+        valueWords.forEach((w, i) => w.classList.toggle('active', i === activeIdx));
+
+        // виден только блок активного слова — остальные уходят
+        const inView = rect.bottom > 0 && rect.top < windowHeight;
+        valueImages.forEach((img, i) => {
+            img.style.opacity = (inView && i === activeIdx) ? '1' : '0';
+        });
+    };
+
+    let tickingA = false;
+    const onABlok3Scroll = () => {
+        if (tickingA) return;
+        tickingA = true;
+        requestAnimationFrame(() => {
+            updateABlok3();
+            tickingA = false;
+        });
+    };
+
+    const onABlok3Resize = () => {
+        positionImages();
+        onABlok3Scroll();
+    };
+
+    [window, document, document.body, document.documentElement].forEach(t => {
+        t.addEventListener('scroll', onABlok3Scroll, { passive: true });
+    });
+    window.addEventListener('resize', onABlok3Resize);
+    window.addEventListener('load', () => { positionImages(); updateABlok3(); });
+    positionImages();
+    updateABlok3();
+}
+
+
+// artists.html — sticky-список артистов: подсветка активного и показ его панели
+const sArtists1 = document.querySelector('.s_artists1');
+const artistsSticky = document.querySelector('.artists_sticky');
+const artNames = sArtists1 ? sArtists1.querySelectorAll('.art') : [];
+const artistPanels = sArtists1 ? sArtists1.querySelectorAll('.artist_panel') : [];
+
+if (sArtists1 && artistsSticky && artNames.length && artistPanels.length) {
+    const updateArtists = () => {
+        const rect = sArtists1.getBoundingClientRect();
+        const sectionHeight = sArtists1.offsetHeight;
+        const windowHeight = window.innerHeight;
+        const scrolled = -rect.top;
+        const total = sectionHeight - windowHeight;
+        const progress = Math.min(1, Math.max(0, scrolled / total));
+
+        const n = artNames.length;
+        let activeIdx = Math.floor(progress * n);
+        if (activeIdx >= n) activeIdx = n - 1;
+        if (activeIdx < 0) activeIdx = 0;
+
+        artNames.forEach((name, i) => name.classList.toggle('active', i === activeIdx));
+        artistPanels.forEach((panel, i) => panel.classList.toggle('active', i === activeIdx));
+    };
+
+    let tickingAr = false;
+    const onArtistsScroll = () => {
+        if (tickingAr) return;
+        tickingAr = true;
+        requestAnimationFrame(() => {
+            updateArtists();
+            tickingAr = false;
+        });
+    };
+
+    [window, document, document.body, document.documentElement].forEach(t => {
+        t.addEventListener('scroll', onArtistsScroll, { passive: true });
+    });
+    window.addEventListener('resize', onArtistsScroll);
+    window.addEventListener('load', updateArtists);
+    updateArtists();
+}
+
+
+// events.html — интерактивная доска: курсор сдвигает слои с разной скоростью (параллакс)
+const eventsBoard = document.querySelector('.events_board');
+const evCards = eventsBoard ? eventsBoard.querySelectorAll('.ev_card') : [];
+
+if (eventsBoard && evCards.length) {
+    let targetX = 0, targetY = 0;
+    let curX = 0, curY = 0;
+    let rafId = null;
+
+    eventsBoard.addEventListener('mousemove', (e) => {
+        const rect = eventsBoard.getBoundingClientRect();
+        targetX = ((e.clientX - rect.left) / rect.width - 0.5) * 2;   // -1..1
+        targetY = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
+    });
+
+    eventsBoard.addEventListener('mouseleave', () => {
+        targetX = 0;
+        targetY = 0;
+    });
+
+    const tick = () => {
+        curX += (targetX - curX) * 0.07;
+        curY += (targetY - curY) * 0.07;
+
+        evCards.forEach(card => {
+            const layer = parseFloat(card.dataset.layer) || 1;
+            const factor = layer * 6;  // дальние слои двигаются меньше, ближние больше
+            card.style.transform = `translate(${-curX * factor}vw, ${-curY * factor}vh)`;
+        });
+
+        rafId = requestAnimationFrame(tick);
+    };
+    tick();
+}
+
+
+// водим мышкой - картинки
+    let arr = [
+        "img/me1.jpg", // 0
+        "img/me2.jpg", // 1
+        "img/me3.jpg", // 2
+        "img/me4.jpg", // 3
+        "img/icon.jpg", // 4
+    ];
+
+        let block = document.querySelector(".seventh_screen");
+        let rand, canvasPosition, canvasTop, canvasLeft;
+
+
+        block.addEventListener("mousemove", function(e) {
+    const rand = Math.floor(Math.random() * arr.length);
+    const element = arr[rand];
+
+    const canvasPosition = block.getBoundingClientRect();
+    const canvasTop = canvasPosition.top;
+    const canvasLeft = canvasPosition.left;
+
+    const img = document.createElement("img");
+    img.src = element;
+    img.style.position = "absolute";
+    img.style.left = `${e.clientX - canvasLeft}px`;
+    img.style.top = `${e.clientY - canvasTop}px`;
+    img.style.width = "10vw";
+    img.style.height = "10vw";
+
+    block.appendChild(img);
+
+setTimeout(() => {
+    img.style.opacity = "0";
+}, 1000);
+
+setTimeout(() => {
+    img.remove();
+}, 2000);
+});
+
+// вращение колеса слов в third_screen
+const thirdScreen = document.querySelector('.third_screen');
+const wordsWheel = document.querySelector('.words_wheel');
+const wordDescription = document.querySelector('.word_description');
+const artistPhotos = thirdScreen ? thirdScreen.querySelectorAll('.artist_photo') : [];
+
+if (thirdScreen && wordsWheel && wordDescription) {
+    const words = Array.from(wordsWheel.querySelectorAll('.word'));
+    const ANGLE_STEP = 18;
+    const Y_STEP = 9;
+
+    const updateThirdScroll = () => {
+        const rect = thirdScreen.getBoundingClientRect();
+        const sectionHeight = thirdScreen.offsetHeight;
+        const windowHeight = window.innerHeight;
+        const scrolled = -rect.top;
+        const total = sectionHeight - windowHeight;
+        const progress = Math.min(1, Math.max(0, scrolled / total));
+        const currentIndex = progress * (words.length - 1);
+
+        words.forEach((word, i) => {
+            const offset = i - currentIndex;
+            const rotation = offset * ANGLE_STEP;
+            const y = offset * Y_STEP;
+            const dist = Math.abs(offset);
+            const opacity = Math.max(0.15, 1 - dist * 0.3);
+            const scale = Math.max(0.55, 1 - dist * 0.12);
+            word.style.transform = `translateY(${y}vw) rotate(${rotation}deg) scale(${scale})`;
+            word.style.opacity = opacity;
+        });
+
+        const centerIdx = Math.max(0, Math.min(words.length - 1, Math.round(currentIndex)));
+        wordDescription.textContent = words[centerIdx].dataset.desc || '';
+        const distFromCenter = Math.abs(currentIndex - centerIdx);
+        const centerOpacity = Math.max(0, 1 - distFromCenter * 3);
+        wordDescription.style.opacity = centerOpacity;
+
+        // фото активного артиста появляется/исчезает вместе с описанием
+        artistPhotos.forEach((photo, i) => {
+            photo.style.opacity = (i === centerIdx) ? centerOpacity : 0;
+        });
+    };
+
+    let ticking3 = false;
+    const onThirdScroll = () => {
+        if (ticking3) return;
+        ticking3 = true;
+        requestAnimationFrame(() => {
+            updateThirdScroll();
+            ticking3 = false;
+        });
+    };
+
+    [window, document, document.body, document.documentElement].forEach(t => {
+        t.addEventListener('scroll', onThirdScroll, { passive: true });
+    });
+    window.addEventListener('resize', onThirdScroll);
+    window.addEventListener('load', updateThirdScroll);
+    updateThirdScroll();
+}
+
+
+// горизонтальный скролл секции "мероприятия"
+const fifthScreen = document.querySelector('.fifth_screen');
+const eventsTrack = document.querySelector('.events_track');
+
+if (fifthScreen && eventsTrack) {
+    const updateEventsScroll = () => {
+        const rect = fifthScreen.getBoundingClientRect();
+        const sectionHeight = fifthScreen.offsetHeight;
+        const windowHeight = window.innerHeight;
+        const scrolled = -rect.top;
+        const total = sectionHeight - windowHeight;
+        const progress = Math.min(1, Math.max(0, scrolled / total));
+        const trackWidth = eventsTrack.scrollWidth;
+        const maxTranslate = Math.max(0, trackWidth - window.innerWidth);
+        eventsTrack.style.transform = `translate(${-progress * maxTranslate}px, -50%)`;
+    };
+
+    let ticking = false;
+    const onScroll = () => {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(() => {
+            updateEventsScroll();
+            ticking = false;
+        });
+    };
+
+    // body может быть scroll-контейнером (из-за overflow-x: hidden + height: 100%),
+    // поэтому слушаем на нескольких целях
+    [window, document, document.body, document.documentElement].forEach(t => {
+        t.addEventListener('scroll', onScroll, { passive: true });
+    });
+    window.addEventListener('resize', onScroll);
+    window.addEventListener('load', updateEventsScroll);
+    updateEventsScroll();
+}
+
+const burger = document.querySelector('.burger');
+const menu = document.querySelector('.side-menu');
+
+burger.addEventListener('click', () => {
+    burger.classList.toggle('active');
+    menu.classList.toggle('active');
+});
+
+});

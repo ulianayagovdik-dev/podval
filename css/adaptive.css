@@ -1,0 +1,453 @@
+@media screen and (min-width: 1px) and (max-width: 450px)  {
+/*  мобилка  */
+
+.first_screen{
+    height: 175vw;
+}
+.video{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 320%;
+    height: 175vw; 
+}
+
+.h_container{
+    flex-direction: column;
+    margin-top: 72.14vw;
+    font-size: 6.72vw; 
+    gap: 6.47vw;
+}
+h1 {margin-left: 6vw;}
+
+h2 {
+    margin-left: 6vw;
+    width: 79.60vw;
+}
+
+.logo {
+    position: absolute;
+    top: 2vw;
+    left: 1.5vw;
+    display: inline-block;
+    width: 10vw;
+    height: 10vw;
+    cursor: pointer;
+    z-index: 1000;
+}
+.logo img{ 
+    width: 100%;
+    height: 10vw; 
+}
+
+/* Бургер */
+.burger {
+    position: fixed;
+    top: 3.5vw;
+    right: 2vw;
+    width: 9vw;
+    height: 4vw;
+    cursor: pointer;
+    z-index: 11;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.burger span {
+    width: 100%;
+    height: 0.8vw;
+    background: white;
+    transition: 0.3s;
+}
+
+.burger.active .span1{    animation: 0.5s rot ;
+animation-fill-mode: forwards;}
+.burger.active .span2{    animation: 0.5s rot_ ;
+animation-fill-mode: forwards;}
+
+@keyframes rot {
+      100%{transform: rotate(60deg);}
+}
+
+@keyframes rot_ {
+      100%{transform: rotate(-60deg);}
+}
+
+nav ul {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    margin: 0;
+    padding: 0.6vw 1.2vw;
+    display: flex;
+    gap: 1.5vw;
+}
+
+.side-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 55vw;
+    background: #000000;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 9vw;
+    transform: translateX(100%);
+    transition: transform 0.4s ease;
+    z-index: 10;
+    color: white;
+}
+
+.side-menu.active { transform: translateX(0);}
+
+.side-menu a {
+    text-decoration: none;
+    font-size: 6vw;
+    transform: translateX(30px);
+    transition: 0.3s;
+}
+
+.side-menu.active a {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.second_screen{
+    height: 180vw;
+    justify-content: center;
+    align-items: center;
+}
+
+h3{
+    position: relative;
+    top: -9vw;
+    width: 85vw;
+    font-size: 7.8vw;
+}
+
+#p1, #p2{
+    font-size: 4.23vw;
+    margin-top: -2vw;
+}
+
+#p1_1, #p2_1{
+    width: 41.29vw;
+    height: 7.96vw;
+}
+
+.third_screen_adaptive{
+    width: 100vw;
+    padding: 6vw;
+    display: flex;
+    flex-direction: column;
+    font-family: "Opsilon";
+}
+
+.third_screen_adaptive > p{
+    color: #ffffff;
+    font-family: "CoFoSans_Regular";
+    font-size: 4vw;
+    margin: 0 0 4vw;
+    opacity: 0.7;
+}
+
+.third_screen_adaptive > div[class^="art_"]{
+    border-top: 0.3vw solid rgba(255,255,255,0.12);
+    padding: 2vw 0;
+}
+
+.third_screen_adaptive > div[class^="art_"]:last-child{
+    border-bottom: 0.3vw solid rgba(255,255,255,0.12);
+}
+
+.h_art{
+    display: block;
+    font-size: 9vw;
+    color: #ffffff;
+    font-family: "Opsilon";
+    line-height: 1.1;
+    margin: 2vw 0;
+    cursor: pointer;
+    user-select: none;
+}
+
+.third_screen_adaptive > div[class^="art_"] > div{
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.55s ease, opacity 0.35s ease, margin 0.4s ease;
+}
+
+.third_screen_adaptive > div[class^="art_"].open > div{
+    max-height: 260vw;
+    opacity: 1;
+    margin-bottom: 3vw;
+}
+
+.third_screen_adaptive > div[class^="art_"] > div > img{
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 3vw 0;
+    border-radius: 1vw;
+}
+
+.third_screen_adaptive > div[class^="art_"] > div > p{
+    color: #ffffff;
+    font-family: "CoFoSans_Regular";
+    font-size: 4vw;
+    line-height: 1.4;
+    margin: 0;
+}
+
+.third_screen{display: none;}
+
+.fourth_screen{
+    margin-top: 40vw;
+    height: 175vw;
+    background-image: url(../img/preview_prod_adaptive.png);
+    background-size: auto;
+    padding: 0vw 6vw;
+    opacity: 1;
+}
+
+.two_card{
+    flex-direction: column;
+    top: 110vw;
+    gap: 8vw;
+}
+
+.demid_card{
+    width: 100%;
+    height: auto;
+    margin: 0;
+    gap: 2vw;
+}
+
+.michael_card{display: none;}
+
+h4{
+    font-size: 11vw;
+    margin: 0;
+}
+
+.p1{
+    font-size: 3.5vw;
+    margin: 0;
+}
+
+.p2{
+    font-size: 4.5vw;
+    line-height: 1.3;
+    margin: 0;
+}
+
+.under_card{
+    height: auto;
+    padding: 10vw 6vw 6vw;
+}
+
+h5{
+    width: 90vw;
+    font-size: 7vw;
+    line-height: 1.15;
+    text-align: center;
+    margin: 0 auto;
+}
+
+#p2{
+    margin-top: 4vw;
+}
+
+#p2_1{
+    font-size: 4vw;
+    color: #fff;
+    text-decoration: underline;
+    text-align: center;
+    display: inline-block;
+}
+
+
+/* fifth_screen — сетка мероприятий */
+.fifth_screen{
+    height: auto;
+    padding: 0 6vw 8vw;
+}
+
+.fifth_sticky{
+    position: static;
+    height: auto;
+    overflow: visible;
+}
+
+.p3{
+    text-align: center;
+    margin: 6vw 0 4vw;
+    font-size: 4vw;
+    padding-top: 0;
+    margin-left: 0;
+    opacity: 0.8;
+}
+
+.events_track{
+    position: static;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3vw;
+    padding: 0;
+    transform: none !important;
+    width: 100%;
+    will-change: auto;
+}
+
+.event_card{
+    flex-shrink: 1;
+    width: 100%;
+    height: 60vw;
+    transform: none !important;
+}
+
+.event_card:nth-child(odd){
+    transform: none !important;
+}
+
+.event_card:nth-child(even){
+    transform: none !important;
+    height: 72vw;
+}
+
+.event_card::after{
+    font-size: 2.8vw;
+    padding: 1.4vw 3vw;
+}
+
+
+/* sixth_screen — магазин */
+.sixth_screen{
+    height: auto;
+    padding: 0 6vw 10vw;
+}
+
+.shop_div{
+    position: static;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    left: 0;
+    top: 0;
+    gap: 4vw;
+    justify-content: space-between;
+}
+
+.kepka, .bag, .beer{
+    width: 43vw;
+    height: auto;
+    margin: 0;
+    gap: 1.5vw;
+}
+
+.kepka > img,
+.bag > img,
+.beer > img{
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+h6{
+    font-size: 5vw;
+    text-align: left;
+    margin: 0;
+}
+
+.p4{
+    font-size: 3.5vw;
+    text-align: left;
+    text-decoration: underline;
+}
+
+
+/* seventh_screen — креативные кампейны */
+.seventh_screen{
+    height: 80vw;
+    padding: 0 6vw;
+}
+
+#h1{
+    width: 80vw;
+    font-size: 8vw;
+    text-align: center;
+    margin: 0 auto;
+    top: 20vw;
+    left: 0;
+    display: block;
+    line-height: 1.15;
+}
+
+
+/* footer */
+footer{
+    height: auto;
+    width: 100%;
+}
+
+.div_fot{
+    height: auto;
+}
+
+.footer_line{
+    font-size: 20vw;
+}
+
+.line1, .line2{
+    animation-duration: 14s;
+}
+
+.footer{
+    flex-direction: column;
+    gap: 6vw;
+    padding: 6vw;
+    font-size: 4.5vw;
+    padding-top: 0;
+}
+
+.left_list{
+    padding-left: 0;
+}
+
+.left_list, .right_list{
+    width: 100%;
+    gap: 3vw;
+}
+
+.connect{
+    margin-left: 0;
+}
+
+}
+
+@media screen and (min-width: 451px) and (max-width: 768px) {
+/*    планшет мини */
+}
+
+
+@media screen and (min-width: 769px) and (max-width:  1366px) {
+/*  планшет про */
+}
+
+@media screen and (min-width:  1366px) and (max-width: 1440px) {
+/* маленькие ноуты */
+}
+
+@media screen and (min-width: 1441px) and (max-width: 1920px) {
+/* desctop */
+}
+
+
+/* @media screen and (min-width: 1921px) {
+Дополнительно большие экраны } 
+Ориентация добавляется по необходимости и доп диапазоны тоже */
