@@ -779,7 +779,10 @@ h6{
     text-indent: 7%;
 }
 
-.pm3{width: 35vw;}
+.pm3{
+    width: 35vw;
+    font-size: 1.18vw;
+}
 
 
 /* footer css */

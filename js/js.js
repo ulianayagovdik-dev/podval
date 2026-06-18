@@ -10,6 +10,50 @@ document.querySelectorAll('nav a').forEach(link => {
 });
 
 
+// мобильный меню-бар: динамически создаём бургер и side-menu,
+// клонируем ссылки из <nav> — работает на всех страницах без правки HTML
+const navEl = document.querySelector('nav');
+if (navEl) {
+    const burger = document.createElement('div');
+    burger.className = 'burger';
+    burger.innerHTML = '<span class="span1"></span><span class="span2"></span>';
+    document.body.appendChild(burger);
+
+    const sideMenu = document.createElement('div');
+    sideMenu.className = 'side-menu';
+
+    // крестик в правом верхнем углу меню
+    const closeBtn = document.createElement('div');
+    closeBtn.className = 'menu-close';
+    closeBtn.setAttribute('aria-label', 'закрыть меню');
+    sideMenu.appendChild(closeBtn);
+
+    navEl.querySelectorAll('a').forEach(a => {
+        sideMenu.appendChild(a.cloneNode(true));
+    });
+    document.body.appendChild(sideMenu);
+
+    const setMenu = (open) => {
+        burger.classList.toggle('active', open);
+        sideMenu.classList.toggle('active', open);
+    };
+
+    closeBtn.addEventListener('click', () => setMenu(false));
+
+    burger.addEventListener('click', () => {
+        setMenu(!sideMenu.classList.contains('active'));
+    });
+
+    sideMenu.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => setMenu(false));
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') setMenu(false);
+    });
+}
+
+
 // popup_community — закрывается крестиком, открывается кликом на .ev_card и .t (.t1/.t2/.t3)
 const popupCommunity = document.querySelector('.popup_community');
 
