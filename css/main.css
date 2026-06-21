@@ -653,8 +653,11 @@ h6{
 } */
 
 .a_blok1_sticky > video{
-    width: 22vw;
-    height: 12.92vw;
+    /* width: 30vw;
+    height: 16vw; */
+    width: 0.1vw;
+    height: 0.1vw;
+    border-radius: 0;
     position: relative;
     top: auto;
     left: auto;
@@ -678,7 +681,7 @@ h6{
 
 .a_blok2{
     width: 100vw;
-    height: 55vw;
+    height: 40vw;
     /* background: #000000; */
     color: #ffffff;
     font-family: "CoFoSans_Bold";
@@ -687,13 +690,14 @@ h6{
     /* position: relative;
     z-index: -1; */
     padding-left: 3.99vw;
-    padding-top: 17vw;
+    padding-top: 24vw;
 }
 
 #hm2{
     width: 72.01vw}
 
 .a_blok3{
+    /* margin-top: 16vw; */
     width: 100vw;
     height: 250vh;
     /* background: #000000; */

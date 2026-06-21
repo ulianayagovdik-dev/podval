@@ -186,8 +186,10 @@ const aBlok1Img = aBlok1Sticky ? aBlok1Sticky.querySelector('video') : null;
 
 if (aBlok1 && aBlok1Sticky && aBlok1Img) {
     // целевые размеры начального состояния
-    const INIT_W_VW = 67.15;
-    const INIT_H_VW = 39.58;
+    // const INIT_W_VW = 67.15;
+    // const INIT_H_VW = 39.58;
+    const INIT_W_VW = 120;
+    const INIT_H_VW = 60;
 
     let initScaleX = 1, initScaleY = 1, initTranslateY = 0;
 
