@@ -10,10 +10,11 @@ document.querySelectorAll('nav a').forEach(link => {
 });
 
 
-// мобильный меню-бар: динамически создаём бургер и side-menu,
-// клонируем ссылки из <nav> — работает на всех страницах без правки HTML
+// мобильный меню-бар: динамически создаём бургер и side-menu только на мобилке,
+// клонируем ссылки из <nav> — работает на всех страницах без правки HTML.
+// На десктопе элементы вообще не попадают в DOM, чтобы не светиться под футером.
 const navEl = document.querySelector('nav');
-if (navEl) {
+if (navEl && window.matchMedia('(max-width: 450px)').matches) {
     const burger = document.createElement('div');
     burger.className = 'burger';
     burger.innerHTML = '<span class="span1"></span><span class="span2"></span>';
@@ -54,7 +55,42 @@ if (navEl) {
 }
 
 
-// popup_community — закрывается крестиком, открывается кликом на .ev_card и .t (.t1/.t2/.t3)
+// payment.html — показ выбранного тарифа из ?tariff=, переключение способов оплаты,
+// «Подписаться» переводит на 404.html (никакой реальной оплаты/сбора данных)
+const paySection = document.querySelector('.pay_section');
+if (paySection) {
+    const params = new URLSearchParams(window.location.search);
+    const wantedTariff = params.get('tariff') || 't1';
+    const payCards = paySection.querySelectorAll('.pay_t');
+    let shown = false;
+    payCards.forEach(card => {
+        if (card.dataset.tariff === wantedTariff) {
+            card.classList.add('show');
+            shown = true;
+        }
+    });
+    // fallback: если по какой-то причине не нашли, показываем первый
+    if (!shown && payCards[0]) payCards[0].classList.add('show');
+
+    // переключение «Карта» / «iDEAL» — чисто визуально
+    const methodBtns = paySection.querySelectorAll('.pay_method');
+    methodBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            methodBtns.forEach(b => b.classList.remove('pay_method_active'));
+            btn.classList.add('pay_method_active');
+        });
+    });
+
+    // «Подписаться» и «Pay» — переводят на 404.html
+    paySection.querySelectorAll('.pay_submit, .pay_apple_btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            window.location.href = './404.html';
+        });
+    });
+}
+
+
+// popup_community — закрывается крестиком, открывается кликом по «присоединиться» (.pc_)
 const popupCommunity = document.querySelector('.popup_community');
 
 if (popupCommunity) {
@@ -91,8 +127,8 @@ if (popupCommunity) {
         });
     }
 
-    // ev_card (events.html) и t1/t2/t3 (community.html) — открывают попап
-    document.querySelectorAll('.ev_card, .t').forEach(trigger => {
+    // «присоединиться» (.pc_) внутри карточек — открывает попап
+    document.querySelectorAll('.pc_').forEach(trigger => {
         trigger.style.cursor = 'pointer';
         trigger.addEventListener('click', openPopup);
     });

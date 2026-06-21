@@ -1,6 +1,4 @@
-/* burger и side-menu — динамически создаются JS на всех страницах,
-   но видны только на мобилке (мобильные display: flex ниже перекроют это) */
-/* .burger, .side-menu { display: none; } */
+/* burger и side-menu добавляются в DOM только на мобилке (см. js.js) */
 
 
 @media screen and (min-width: 1px) and (max-width: 450px)  {

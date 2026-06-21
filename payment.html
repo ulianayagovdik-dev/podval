@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>podval — оплата</title>
+      <link rel="icon" href="./img/favicon.png">
+      <link href="./css/style.css" rel="stylesheet" type="text/css"/>
+      <script src="./js/js.js" charset="utf-8"></script>
+</head>
+<body>
+
+<a href="index.html" class="logo"> <img src="./img/logo2.png" alt="pic"></a>
+
+<nav class="side-menu">
+  <ul>
+    <li><a href="merch.html">МЕРЧ ШОП</a></li>
+    <li><a href="about.html">О ПРОЕКТЕ</a></li>
+    <li><a href="events.html">СОБЫТИЯ</a></li>
+    <li><a href="streams.html">СТРИМЫ</a></li>
+    <li><a href="artists.html">АРТИСТЫ</a></li>
+    <li><a href="community.html">КОМЬЮНИТИ</a></li>
+  </ul>
+</nav>
+
+<section class="pay_section">
+    <div class="pay_header">
+        <a href="community.html" class="pay_back">&larr;</a>
+        <h class="pay_title">Оформите подписку</h>
+    </div>
+
+    <div class="pay_layout">
+        <!-- ЛЕВАЯ КОЛОНКА: форма оплаты -->
+        <div class="pay_form">
+            <p class="pay_section_label">Оплатить через</p>
+
+            <button type="button" class="pay_apple_btn">
+                <!-- <span class="pay_apple_logo">Apple</span> -->
+                Apple Pay
+            </button>
+
+            <div class="pay_divider"><span>или</span></div>
+
+            <div class="pay_methods">
+                <button type="button" class="pay_method pay_method_active">
+                    <span class="pay_method_icon"><img src="./img/icons8-card-50.png" alt=""></span>
+                    <span>Карта</span>
+                </button>
+                <button type="button" class="pay_method">
+                    <span class="pay_method_icon pay_ideal">PAPA</span>
+                    <span>Папа оплатит</span>
+                </button>
+            </div>
+
+            <div class="pay_input_wrap">
+                <input type="numbert" class="pay_input" placeholder="Номер карты" autocomplete="off">
+                <!-- <span class="pay_input_icons">VISA  AMEX</span> -->
+            </div>
+
+            <div class="pay_input_row">
+                <input type="number" class="pay_input" placeholder="Окончание срока действия" autocomplete="off">
+            </div>
+
+            <div class="pay_input_wrap">
+                <input type="number" class="pay_input" placeholder="Код безопасности" autocomplete="off">
+            </div>
+
+            <label class="pay_check">
+                <input type="checkbox" class="pay_checkbox">
+                <span>Сохранить реквизиты платежа для будущих покупок</span>
+            </label>
+        </div>
+
+        <!-- ПРАВАЯ КОЛОНКА: тариф (один из трёх по data-tariff) -->
+        <div class="pay_plan">
+
+            <div class="pay_t" data-tariff="t1">
+                <h class="pay_th1">BEGINNER</h>
+                <h class="pay_th2">0 Р/МЕСЯЦ</h>
+                <p class="pay_sub">Проверьте свои способности</p>
+                <div class="pay_features">
+                    <p>– полностью бесплатно</p>
+                    <p>– для желающих начать карьеру в&nbsp;медиа</p>
+                    <p>– доступ к чату единомышленников</p>
+                    <p>– возможность выбрать начинающую звезду, развивать ее бренд</p>
+                </div>
+                <div class="pay_total">
+                    <div class="pay_total_row"><span>Подписка</span><span>0 ₽</span></div>
+                    <div class="pay_total_row"><span>Скидка</span><span>0 ₽</span></div>
+                    <div class="pay_total_row pay_total_final"><span>К оплате сегодня</span><span>0 ₽</span></div>
+                </div>
+                <button type="button" class="pay_submit">Подписаться</button>
+            </div>
+
+            <div class="pay_t" data-tariff="t2">
+                <h class="pay_th1">GO GO GO</h>
+                <h class="pay_th2">7 %/МЕСЯЦ</h>
+                <p class="pay_sub">Развивайтесь с нами</p>
+                <div class="pay_features">
+                    <p>– первоначальный взнос 250$</p>
+                    <p>– для тех, кто уже в медиа</p>
+                    <p>– получи креатива, который стрельнет</p>
+                    <p>– возможность присоединиться к&nbsp;известному продюсерскому бренду</p>
+                </div>
+                <div class="pay_total">
+                    <div class="pay_total_row"><span>Первоначальный взнос</span><span>250 $</span></div>
+                    <div class="pay_total_row"><span>Ежемесячный %</span><span>7 %</span></div>
+                    <div class="pay_total_row pay_total_final"><span>К оплате сегодня</span><span>250 $</span></div>
+                </div>
+                <button type="button" class="pay_submit">Подписаться</button>
+            </div>
+
+            <div class="pay_t" data-tariff="t3">
+                <h class="pay_th1">BRO ITS PRO</h>
+                <h class="pay_th2">3 %/МЕСЯЦ</h>
+                <p class="pay_sub">Возьмите максимум</p>
+                <div class="pay_features">
+                    <p>– первоначальный взнос 890$</p>
+                    <p>– кто давно варится в&nbsp;медиа</p>
+                    <p>– личные встречи с&nbsp;боссом</p>
+                    <p>– самые интересные артисты, собранные под запрос</p>
+                </div>
+                <div class="pay_total">
+                    <div class="pay_total_row"><span>Первоначальный взнос</span><span>890 $</span></div>
+                    <div class="pay_total_row"><span>Ежемесячный %</span><span>3 %</span></div>
+                    <div class="pay_total_row pay_total_final"><span>К оплате сегодня</span><span>890 $</span></div>
+                </div>
+                <button type="button" class="pay_submit">Подписаться</button>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+</body>
+</html>
