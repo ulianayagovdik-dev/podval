@@ -385,11 +385,11 @@ if (eventsBoard && evCards.length) {
 
 // водим мышкой - картинки
     let arr = [
-        "img/me1.jpg", // 0
-        "img/me2.jpg", // 1
-        "img/me3.jpg", // 2
-        "img/me4.jpg", // 3
-        "img/icon.jpg", // 4
+        "img/img_c1.png", // 0
+        "img/img_c2.png", // 1
+        "img/img_c3.png", // 2
+        "img/img_c4.png", // 3
+        "img/img_c5.png", // 4
     ];
 
         let block = document.querySelector(".seventh_screen");
