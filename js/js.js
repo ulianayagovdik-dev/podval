@@ -262,6 +262,19 @@ const artNames = sArtists1 ? sArtists1.querySelectorAll('.art') : [];
 const artistPanels = sArtists1 ? sArtists1.querySelectorAll('.artist_panel') : [];
 
 if (sArtists1 && artistsSticky && artNames.length && artistPanels.length) {
+    // На мобилке переставляем каждую панель сразу после её имени —
+    // тогда при раскрытии она появится прямо под именем, а не после всего списка.
+    if (window.matchMedia('(max-width: 450px)').matches) {
+        const aDiv = sArtists1.querySelector('.a_div');
+        if (aDiv) {
+            artNames.forEach((name, i) => {
+                const panel = artistPanels[i];
+                if (panel) aDiv.insertBefore(panel, name.nextSibling);
+            });
+        }
+    }
+
+    // Scroll-based активация — для десктопа и для мобилки одинаково
     const updateArtists = () => {
         const rect = sArtists1.getBoundingClientRect();
         const sectionHeight = sArtists1.offsetHeight;

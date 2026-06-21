@@ -445,8 +445,10 @@ h3{
 .fourth_screen{
     margin-top: 40vw;
     height: 175vw;
+    width: 100vw;
     background-image: url(../img/preview_prod_adaptive.png);
-    background-size: auto;
+    background-size: cover;
+    background-repeat: no-repeat;
     padding: 0vw 6vw;
     opacity: 1;
 }
@@ -735,6 +737,565 @@ footer{
     padding-left: 0.3vw;
 }
 
+
+/* events.html — вертикальный зиг-заг афиш, без глубины и параллакса */
+.events_board{
+    width: 100vw;
+    height: auto;
+    min-height: 0;
+    padding: 0 0 12vw;
+    overflow: hidden;
+    /* background: #000; */
+    cursor: default;
+    display: block;
+}
+
+.events_label{
+    position: static !important;
+    top: auto !important;
+    left: auto !important;
+    margin: 0 0 4vw 6vw;
+    padding-top: 18vw;
+    font-size: 4vw;
+    font-family: "CoFoSans_Regular";
+    color: #fff;
+    pointer-events: auto;
+    z-index: auto;
+}
+
+.ev_card{
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    width: 70vw !important;
+    height: 90vw !important;
+    opacity: 1 !important;
+    z-index: auto !important;
+    transform: none !important;
+    display: block;
+    cursor: pointer;
+    margin: 0 0 -10vw 0;
+}
+
+.ev_card > img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* zig-zag: 1, 3, 5 — слева; 2, 4, 6, 8 — справа */
+.ev_card_1, .ev_card_3, .ev_card_5,  .ev_card_8{
+    margin-left: 10vw !important;
+    margin-right: auto !important;
+}
+
+.ev_card_2, .ev_card_4, .ev_card_6{
+    margin-left: auto !important;
+    margin-right: 10vw !important;
+}
+
+/* у последней карточки в потоке снимаем отрицательный нижний отступ */
+.events_board > .ev_card:last-of-type{
+    margin-bottom: 0 !important;
+}
+
+
+/* popup_community — мобильная модалка */
+.popup_community{
+    position: fixed !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    width: 90vw !important;
+    height: auto !important;
+    max-height: 90vh;
+    padding: 5vw 5vw 6vw !important;
+    border-radius: 3vw !important;
+    z-index: 10000 !important;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+.cancel{
+    position: absolute !important;
+    top: 3vw !important;
+    right: 3vw !important;
+    width: 7vw !important;
+    height: 7vw !important;
+    margin: 0 !important;
+    cursor: pointer;
+}
+
+.pop_h{
+    margin: 6vw 0 0 !important;
+    padding: 0 4vw;
+    font-size: 6vw !important;
+    line-height: 1.15;
+    text-align: center;
+}
+
+.div_in{
+    width: 100% !important;
+    height: auto !important;
+    margin: 6vw 0 0 !important;
+    padding: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 3vw !important;
+}
+
+.div_in2{
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 2.5vw !important;
+    width: 100%;
+}
+
+.ia{
+    width: 100% !important;
+    flex: 1 1 0 !important;
+    min-width: 0;
+}
+
+.ii{
+    width: 100% !important;
+    font-size: 3.8vw !important;
+}
+
+input, select{
+    height: 11vw !important;
+    font-size: 3.8vw !important;
+    padding-left: 3vw !important;
+    border-radius: 1.2vw;
+    font-family: "CoFoSans_Regular";
+    box-sizing: border-box;
+}
+
+select{
+    appearance: auto;
+    -webkit-appearance: menulist;
+}
+
+.done{
+    width: 100% !important;
+    height: 12vw !important;
+    border-radius: 2vw !important;
+    margin: 6vw 0 0 !important;
+    top: 0 !important;
+    font-size: 4.2vw !important;
+    cursor: pointer;
+}
+
+
+/* streams.html — мобильная адаптация */
+.mini_stream{
+    display: none !important;
+}
+
+.s_blok1{
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+    padding: 18vw 4vw 4vw;
+    gap: 0.5vw;
+    box-sizing: border-box;
+}
+
+/* стрим-видео — наверху секции */
+.stream{
+    order: -1;
+    margin-left: 0;
+    width: 100%;
+    position: relative;
+}
+
+.online{
+    width: 100% !important;
+    height: 60vw !important;
+    border-radius: 2.5vw;
+    object-fit: cover;
+    display: block;
+    background: #1a1a1a;
+}
+
+.circle{
+    width: 2.5vw !important;
+    height: 2.5vw !important;
+    border-radius: 50%;
+    margin: 0 !important;
+    top: 3vw;
+    left: 3vw;
+    z-index: 2;
+}
+
+.ps2{
+    font-size: 3vw !important;
+    margin: 0 !important;
+    top: 2.6vw;
+    left: 7vw;
+    z-index: 2;
+}
+
+.decription_art{
+    width: 100% !important;
+    height: auto !important;
+    padding: 0 !important;
+    margin: 2vw 0 0;
+    gap: 3vw !important;
+}
+
+.ps1{
+    font-size: 3.3vw !important;
+    line-height: 1.3;
+    color: #fff;
+}
+
+#hs1{
+    /* font-family: "Opsilon"; */
+    font-size: 8vw !important;
+    color: #ffffff;
+    text-wrap: wrap;
+}
+
+/* s_blok2 — список онлайн-эфиров */
+.s_blok2{
+    width: 100%;
+    height: auto;
+    padding: 4vw 0 8vw;
+    box-sizing: border-box;
+}
+
+.ot{
+    font-size: 4vw !important;
+    margin: 0 0 4vw 4vw !important;
+    gap: 8vw !important;
+}
+
+.ps4{
+    font-size: 3.2vw !important;
+}
+
+.now_online{
+    flex-direction: column !important;
+    gap: 4vw;
+    padding: 0 4vw;
+    margin-top: 2vw !important;
+    box-sizing: border-box;
+}
+
+.onl,
+.onl1, .onl2, .onl3{
+    position: relative !important;
+    width: 100% !important;
+    height: 65vw !important;
+    margin: 0 !important;
+    top: auto !important;
+    left: auto !important;
+    border-radius: 3vw;
+    overflow: hidden;
+    background: #2a2a2a;
+}
+
+.n,
+.n1, .n2, .n3{
+    position: absolute !important;
+    width: 100% !important;
+    height: 100% !important;
+    top: 0 !important;
+    left: 0 !important;
+    border-radius: 3vw;
+    overflow: hidden;
+    margin: 0;
+    opacity: 0.55;
+}
+
+.n1_v, .n2_v, .n3_v{
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;
+}
+
+.onl_txt1{
+    position: relative;
+    top: auto;
+    z-index: 2;
+    padding: 0 0 5vw 5vw !important;
+}
+
+.hs3{
+    font-size: 6vw !important;
+}
+
+
+/* community.html — мобильная адаптация */
+.c_blok1{
+    width: 100%;
+    height: auto !important;
+    padding: 18vw 5vw 5vw !important;
+    gap: 5vw !important;
+    box-sizing: border-box;
+}
+
+#hc1{
+    font-size: 7vw !important;
+    width: 100% !important;
+    line-height: 1.1;
+    margin: 0;
+}
+
+/* карточки продюсеров — горизонтальный скролл */
+.cards_div{
+    flex-direction: row !important;
+    gap: 3vw !important;
+    height: auto !important;
+    overflow-x: auto;
+    overflow-y: visible;
+    padding: 0 5vw 4vw;
+    margin: 0 -5vw;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+}
+
+.cards_div::-webkit-scrollbar{
+    display: none;
+}
+
+.card{
+    width: 65vw !important;
+    height: 95vw !important;
+    flex-shrink: 0;
+    scroll-snap-align: start;
+    position: relative;
+    overflow: hidden;
+    border-radius: 2vw;
+}
+
+.baby{
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.pc{
+    position: absolute;
+    top: 4vw;
+    left: 0;
+    right: 0;
+    padding: 0 4vw;
+    font-size: 3vw !important;
+    text-align: center;
+    z-index: 2;
+    margin: 0;
+}
+
+.h_p{
+    position: absolute !important;
+    bottom: 4vw;
+    left: 0;
+    right: 0;
+    top: auto !important;
+    z-index: 2;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5vw;
+}
+
+.hc{
+    font-size: 7vw !important;
+    margin: 0;
+}
+
+.pc_{
+    font-size: 3vw;
+    margin: 0;
+    opacity: 0.85;
+}
+
+/* c_blok2 — тарифы стеком */
+.c_blok2{
+    width: 100%;
+    height: auto !important;
+    padding: 4vw 5vw 8vw;
+    gap: 5vw !important;
+    box-sizing: border-box;
+}
+
+.hc2{
+    font-size: 7vw !important;
+    width: 100% !important;
+    margin: 0 !important;
+    line-height: 1.1;
+}
+
+.tarifs{
+    flex-direction: column !important;
+    width: 100% !important;
+    height: auto !important;
+    margin: 0 !important;
+    gap: 4vw !important;
+    padding: 0;
+}
+
+.t,
+.t1,
+.t3{
+    width: 100% !important;
+    height: auto !important;
+    border: 0.3vw solid rgba(255, 255, 255, 0.678) !important;
+    border-radius: 0.9vw !important;
+    padding: 6vw 6vw 8vw !important;
+    box-sizing: border-box;
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+.th1_1{
+    font-size: 7vw !important;
+    margin: 0;
+}
+
+.th1_2{
+    padding-top: 4vw !important;
+    font-size: 9vw !important;
+    margin: 0;
+}
+
+.tp1{
+    padding-top: 1.5vw !important;
+    font-size: 3.5vw !important;
+    margin: 0;
+    opacity: 0.85;
+}
+
+.tp_list,
+.tp_list3{
+    padding-top: 7vw !important;
+    font-size: 3.5vw !important;
+    gap: 1.5vw !important;
+    width: 100% !important;
+}
+
+.tp_list > p,
+.tp_list3 > p{
+    margin: 0;
+    line-height: 1.3;
+}
+
+
+/* artists.html — мобильный scroll-аккордеон: sticky-обёртка + inline-раскрытие под активным именем */
+.s_artists1{
+    width: 100vw;
+    height: 700vh !important;
+    position: relative;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.artists_sticky{
+    position: sticky !important;
+    top: 0 !important;
+    width: 100%;
+    height: 100vh !important;
+    overflow: hidden !important;
+    padding: 18vw 5vw 4vw !important;
+    box-sizing: border-box;
+    display: block !important;
+}
+
+.a_div{
+    position: static !important;
+    top: auto !important;
+    left: auto !important;
+    width: 100%;
+    height: 100%;
+    padding: 0 !important;
+    box-sizing: border-box;
+    display: flex !important;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 0;
+    z-index: auto;
+}
+
+.art{
+    font-size: 7vw !important;
+    color: #ffffff;
+    opacity: 0.6;
+    margin: 1vw 0 !important;
+    line-height: 1;
+    font-family: "Opsilon";
+    transition: font-size 0.3s ease, opacity 0.3s ease;
+    cursor: default;
+}
+
+.art.active{
+    font-size: 10vw !important;
+    opacity: 1;
+}
+
+.artist_panel{
+    position: static !important;
+    top: auto !important;
+    left: auto !important;
+    width: 100% !important;
+    height: auto !important;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    padding: 0;
+    pointer-events: none;
+    transition: max-height 0.5s ease, opacity 0.3s ease, margin 0.4s ease;
+}
+
+.linear{
+     display: none;
+}
+
+.artist_panel.active{
+    max-height: 110vw;
+    opacity: 1;
+    margin: 1vw 0 3vw;
+    pointer-events: auto;
+}
+
+.artist_video{
+    position: static !important;
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
+    width: 100% !important;
+    height: 55vw !important;
+    object-fit: cover;
+    display: block;
+    margin: 2vw 0;
+    border-radius: 1.5vw;
+}
+
+.artist_desc,
+.artist_feat{
+    position: static !important;
+    top: auto !important;
+    left: auto !important;
+    width: 100% !important;
+    font-size: 3.5vw !important;
+    margin: 1vw 0 !important;
+    padding: 0 !important;
+    line-height: 1.3;
+    color: #ffffff;
+}
 
 
 }
