@@ -87,6 +87,30 @@ if (paySection) {
             window.location.href = './404.html';
         });
     });
+
+    // номер карты — делим по 4, максимум 12 цифр (формат XXXX XXXX XXXX)
+    const cardInput = paySection.querySelector('input[placeholder="Номер карты"]');
+    if (cardInput) {
+        cardInput.setAttribute('type', 'text');
+        cardInput.setAttribute('inputmode', 'numeric');
+        cardInput.setAttribute('maxlength', '19'); // 12 цифр + 2 пробела
+        cardInput.addEventListener('input', (e) => {
+            const digits = e.target.value.replace(/\D/g, '').slice(0, 16);
+            const groups = digits.match(/.{1,4}/g);
+            e.target.value = groups ? groups.join(' ') : '';
+        });
+    }
+
+    // код безопасности — максимум 3 цифры
+    const cvvInput = paySection.querySelector('input[placeholder="Код безопасности"]');
+    if (cvvInput) {
+        cvvInput.setAttribute('type', 'text');
+        cvvInput.setAttribute('inputmode', 'numeric');
+        cvvInput.setAttribute('maxlength', '3');
+        cvvInput.addEventListener('input', (e) => {
+            e.target.value = e.target.value.replace(/\D/g, '').slice(0, 3);
+        });
+    }
 }
 
 
@@ -127,11 +151,12 @@ if (popupCommunity) {
         });
     }
 
-    // «присоединиться» (.pc_) внутри карточек — открывает попап
-    document.querySelectorAll('.pc_').forEach(trigger => {
-        trigger.style.cursor = 'pointer';
+    // «присоединиться» (.pc_) на community.html и афиши мероприятий (.ev_card) на events.html — открывают попап
+    document.querySelectorAll('.pc_, .ev_card').forEach(trigger => {
+        trigger.style.cursor = 'url(../img/curs3.svg) 0 0, auto';
         trigger.addEventListener('click', openPopup);
     });
+
 }
 
 

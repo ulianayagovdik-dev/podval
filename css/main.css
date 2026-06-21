@@ -1429,7 +1429,7 @@ cursor: url(../img/curs3.svg) 0 0, auto;} */
     opacity: 0.69;
     transition: font-size 0.3s ease, opacity 0.3s ease;
     margin: 0;
-    cursor: url(../img/curs3.svg) 0 0, auto;
+    /* cursor: url(../img/curs3.svg) 0 0, auto; */
 }
 
 .art.active{
@@ -1456,10 +1456,12 @@ cursor: url(../img/curs3.svg) 0 0, auto;} */
 .linear{
     position: absolute;
     top: 50%;
-    left: 70vw;
+    left: 67vw;
     transform: translate(-50%, -50%);
-    width: 56.2vw;
-    height: 38.89vw;
+    /* width: 56.2vw;
+    height: 38.89vw; */
+        width: 58vw;
+    height: 40vw;
     object-fit: cover;
     border-radius: 0.7vw;
     z-index: 2;
@@ -1468,10 +1470,12 @@ cursor: url(../img/curs3.svg) 0 0, auto;} */
 .artist_video{
     position: absolute;
     top: 50%;
-    left: 70vw;
+    left: 67vw;
     transform: translate(-50%, -50%);
-    width: 56.11vw;
-    height: 38.89vw;
+    /* width: 56.11vw;
+    height: 38.89vw; */
+    width: 58vw;
+    height: 40vw;
     object-fit: cover;
     border-radius: 0.7vw;
     color: #000;
@@ -1482,7 +1486,7 @@ cursor: url(../img/curs3.svg) 0 0, auto;} */
     text-shadow: 0 0 8px #1810b3;
     position: absolute;
     top: 38%;
-    left: 28vw;
+    left: 30vw;
     width: 33.54vw;
     margin: 0;
     color: #fff;
@@ -1495,9 +1499,9 @@ cursor: url(../img/curs3.svg) 0 0, auto;} */
 .artist_feat{
     /* text-shadow: 0 0 8px #51cbee; */
     position: absolute;
-    top: 38vw;
+    top: 40vw;
     left: 48vw;
-    width: 33.54vw;
+    width: 40vw;
     margin: 0;
     color: #fff;
     font-family: "CoFoSans_Regular";
