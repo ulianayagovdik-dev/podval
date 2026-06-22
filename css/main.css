@@ -212,10 +212,10 @@ a {
 .artist_photo{
     position: absolute;
     top: 50%;
-    left: 55vw;
+    left: 54vw;
     transform: translateY(-50%);
-    width: 21vw;
-    height: 25vw;
+    width: 25vw;
+    height: 35vw;
     object-fit: cover;
     opacity: 0;
     transition: opacity 0.1s ease;
@@ -1459,8 +1459,8 @@ cursor: url(../img/curs3.svg) 0 0, auto;} */
 
 .linear{
     position: absolute;
-    top: 50%;
-    left: 67vw;
+    margin-top: 30vw;
+    left: 60vw;
     transform: translate(-50%, -50%);
     /* width: 56.2vw;
     height: 38.89vw; */
@@ -1473,8 +1473,8 @@ cursor: url(../img/curs3.svg) 0 0, auto;} */
 
 .artist_video{
     position: absolute;
-    top: 50%;
-    left: 67vw;
+    margin-top: 30vw;
+    left: 60vw;
     transform: translate(-50%, -50%);
     /* width: 56.11vw;
     height: 38.89vw; */
@@ -1490,7 +1490,7 @@ cursor: url(../img/curs3.svg) 0 0, auto;} */
     text-shadow: 0 0 8px #1810b3;
     position: absolute;
     top: 38%;
-    left: 30vw;
+    left: 65vw;
     width: 33.54vw;
     margin: 0;
     color: #fff;
