@@ -1465,6 +1465,53 @@ select{
 }
 
 
+/* ============================================================
+   404.html — мобильная адаптация
+   ============================================================ */
+
+.s_error{
+    width: 100vw !important;
+    height: 100vh !important;
+    min-height: 100vh;
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20vw 6vw 8vw;
+    box-sizing: border-box;
+}
+
+.h404{
+    font-size: 40vw !important;
+    padding-top: 0 !important;
+    margin: 0 !important;
+    line-height: 1;
+    display: block !important;
+    text-align: center;
+}
+
+.p_er1{
+    font-size: 5vw !important;
+    margin: 6vw 0 0 !important;
+    padding: 0 !important;
+    text-align: center;
+    width: 90vw;
+    display: block !important;
+}
+
+.p_er2{
+    font-size: 4.2vw !important;
+    margin: 8vw 0 0 !important;
+    padding: 2.5vw 6vw !important;
+    text-align: center;
+    display: inline-block !important;
+    /* border: 0.3vw solid rgba(255,255,255,0.4); */
+    border-radius: 99vw;
+    color: #fff !important;
+    text-decoration: none;
+}
+
+
 }
 
 @media screen and (min-width: 451px) and (max-width: 768px) {
