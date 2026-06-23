@@ -5,8 +5,6 @@ html, body{
     overflow-x: hidden;
     height: 100%;
     background: rgb(0, 0, 0);
-    /* background: url(../img/setka.png);
-    background-image: 100%; */
     background: url(../img/background_dark2.svg);
     background-image: 100%;
     background-size: 100%;
@@ -29,7 +27,6 @@ nav ul {
   padding: 0.6vw 1.2vw;
   display: flex;
   gap: 1.5vw;
-  /* border: 0.07vw solid rgb(255, 255, 255); */
   border-radius: 99vw;
 }
 
@@ -51,8 +48,7 @@ nav a:hover {
 }
 
 nav a.active {
-    border-bottom: 0.07vw solid white;
-}
+    border-bottom: 0.07vw solid white;}
  
 .first_screen {
     position: relative;
@@ -87,8 +83,7 @@ nav a.active {
 }
 
 h1 {
-    margin-left: 4vw;
-}
+    margin-left: 4vw;}
 
 h2 {
     margin-left: 18vw;
@@ -134,7 +129,6 @@ h2 {
     color: #ffffff;
     width: 100%;
     height: 45vw;
-    /* background: #000000; */
     position: relative;
     display: flex;
     flex-direction: column;
@@ -155,7 +149,6 @@ a {
 .third_screen{
    width:  100%;
    height: 300vh;
-   /* background: #000000; */
    position: relative;
 }
 
@@ -190,8 +183,6 @@ a {
     transform-origin: left center;
     will-change: transform, opacity;
     cursor: url(../img/curs3.svg) 0 0, auto;
-    /* z-index: 2;
-    display: flex; */
 }
 
 .word_description{
@@ -236,7 +227,7 @@ a {
     color: #ffffff;
     display: flex;
     flex-direction: row;
-    top: 35vw;
+    top: 40vw;
 }
 
 .michael_card, .demid_card{
@@ -244,7 +235,6 @@ a {
     flex-direction: column;
     width: 30vw;
     height: 19.51vw;
-    /* gap: 1.74vw; */
     gap: 0.9vw;
 }
 h4{
@@ -252,8 +242,7 @@ h4{
     font-family: "Opsilon";
 }
 .p1, .p2{
-    font-family: "CoFoSans_Regular";
-}
+    font-family: "CoFoSans_Regular";}
 
 .p1{
     font-size: 1.2vw;}
@@ -262,12 +251,10 @@ h4{
     font-size: 1.4vw;}
 
 .demid_card{
-    margin-left: 29.4vw;
-    margin-top: 5vw;}
+    margin-left: 20vw;}
 
 .michael_card{
-    margin-left: 4vw;
-}
+    margin-left: 12vw;}
 
 .under_card{
     color: #ffffff;
@@ -313,8 +300,7 @@ h5{
 }
 
 #p1_1:active, #p1_1:hover, #p2_1:hover{
-    background: #2009bb;
-}
+    background: #2009bb;}
 
 .fifth_screen{
    width:  100%;
@@ -391,8 +377,7 @@ h5{
 .event_card:nth-child(even){ transform: rotate(2.5deg); }
 
 .event_card:hover{
-    border-color: #4a90ff;
-}
+    border-color: #4a90ff;}
 
 .event_card::after{
     content: "УЗНАТЬ БОЛЬШЕ";
@@ -414,8 +399,7 @@ h5{
 }
 
 .event_card:hover::after{
-    opacity: 1;
-}
+    opacity: 1;}
 
 .p3{
     font-family: "CoFoSans_Regular";
@@ -429,7 +413,6 @@ h5{
     width:  100%;
     height: 68vw;
     position: relative;
-    /* background: #000000; */
     position: relative;
     z-index: 1;
 }
@@ -487,8 +470,7 @@ h6, .p4{
 }
 
 h6{
-    font-size: 1.88vw;
-}
+    font-size: 1.88vw;}
 
 .p4{
     font-size: 1.18vw;
@@ -502,7 +484,6 @@ h6{
     width:  100%;
     height: 56vw;
     position: relative;
-    /* background: #000000; */
     position: relative;
     z-index: 1;
 }
@@ -519,23 +500,19 @@ h6{
     width: 38.75vw;
 }
 
-
 /* css мерч шоп */
 
 .i{
-    cursor: url(../img/curs1.svg) 0 0, auto;
-}
+    cursor: url(../img/curs1.svg) 0 0, auto;}
 
 .main_shop{
     padding-top: 13.13vw;
     width: 100vw;
     height: 85vw;
-    /* background: #000; */
     display: flex;
     flex-direction: column;
     gap: 8.61vw;
     position: relative;
-    /* z-index: -2; */
 }
 
 .upperline{
@@ -612,17 +589,13 @@ h6{
     height: 26.67vw;
 }
 
-.i2{
-    margin-left: 24.5vw;}
-
-
+.i2{ margin-left: 24.5vw;}
 
 /* about project */
 
 .a_blok1{
     width: 100vw;
     height: 200vh;
-    /* background: #000000; */
     color: #ffffff;
     font-family: "CoFoSans_Regular";
     font-size: 3.68vw;
@@ -643,18 +616,7 @@ h6{
     gap: 1.88vw;
 }
 
-/* .a_blok1_sticky > img{
-    width: 22vw;
-    height: 12.92vw;
-    position: relative;
-    z-index: 2;
-    transform-origin: center center;
-    will-change: transform;
-} */
-
 .a_blok1_sticky > video{
-    /* width: 30vw;
-    height: 16vw; */
     width: 0.1vw;
     height: 0.1vw;
     border-radius: 0;
@@ -665,7 +627,6 @@ h6{
     transform-origin: center center;
     object-fit: fill;
     will-change: transform;
-    /* cursor: url(../img/curs.svg) 0 0, auto; */
 }
 
 #hm1{
@@ -676,35 +637,28 @@ h6{
 
 #hm1, #hm2, #hm3{
     font-size: 3.68vw;
-        font-family: "Opsilon";
+    font-family: "Opsilon";
 }
 
 .a_blok2{
     width: 100vw;
-    height: 40vw;
-    /* background: #000000; */
+    height: 30vw;
     color: #ffffff;
     font-family: "CoFoSans_Bold";
     font-size: 3.68vw;
     text-align: left;
-    /* position: relative;
-    z-index: -1; */
     padding-left: 3.99vw;
-    padding-top: 24vw;
+    padding-top: 20vw;
 }
 
 #hm2{
     width: 72.01vw}
 
 .a_blok3{
-    /* margin-top: 16vw; */
     width: 100vw;
     height: 250vh;
-    /* background: #000000; */
     color: #ffffff;
     font-family: "CoFoSans_Regular";
-    /* position: relative;
-    z-index: -1; */
 }
 
 .a_blok3_sticky{
@@ -761,11 +715,8 @@ h6{
 .a_blok4{
     width: 100vw;
     height: 60vw;
-    /* background: #000000; */
     color: #ffffff;
     font-family: "CoFoSans_Regular";
-    /* position: relative;
-    z-index: -1; */
     display: flex;
     flex-direction: row;
     padding-top: 20vw;
@@ -815,7 +766,6 @@ h6{
 
 /* footer css */
 footer{
-    /* background: #000000; */
     width: 100vw;
     height: 34vw;
     overflow: hidden;
@@ -826,7 +776,6 @@ footer{
     flex-direction: column;
     text-wrap: nowrap;
     width: 100vw;
-    /* overflow: hidden; */
     height: 22vw;
     position: relative;
     z-index: 0;
@@ -859,12 +808,6 @@ footer{
     gap: 1.39vw;
     width: 20vw;
 }
-/* 
-.left_list > p:hover{cursor: pointer;} */
-
-/* .left_list:hover, .right_list:hover{
-    text-decoration: underline;
-} */
 
 .connect{
     position: relative;
@@ -882,12 +825,10 @@ footer{
     white-space: nowrap;
     z-index: 0;
     color: #13145285;
-    /* opacity: 0.7; */
 }
 
 .footer_line > span{
-    flex-shrink: 0;
-}
+    flex-shrink: 0;}
 
 .line1{
     top: -3vw;
@@ -912,14 +853,11 @@ footer{
 .c_blok1{
     width: 100vw;
     height: 85vw;
-    /* background: #000000; */
     color: #ffffff;
     display: flex;
     flex-direction: column;
     padding-top: 11.11vw;
     padding-left: 3.99vw;
-    /* position: relative;
-    z-index: -1; */
     gap: 1.32vw;
 }
 
@@ -940,7 +878,6 @@ footer{
     font-family: "CoFoSans_Regular";
     width: 29.65vw;
     height: 41.32vw;
-    /* background-color: #dbdbdb; */
     color: #ffffff;
     display: flex;
     flex-direction: column;
@@ -1007,11 +944,8 @@ footer{
 .c_blok2{
     width: 100%;
     height: 60vw;
-    /* background: #000; */
     display: flex;
     flex-direction: column;
-    /* position: relative;
-    z-index: -2; */
     gap: 3.47vw;
 }
 
@@ -1043,7 +977,6 @@ footer{
     display: flex;
     flex-direction: column;
     cursor: url(../img/curs4.svg) 0 0, auto ;
-    /* pointer-events: none; */
 }
 
 .t:hover{
@@ -1094,15 +1027,12 @@ footer{
 .s_blok1{
     width: 100%;
     height: 60vw;
-    /* background: #000; */
     display: flex;
     flex-direction: row;
     position: relative;
-    /* z-index: -2; */
     color: #ffffff;
     padding-top: 8vw;
     font-family: "CoFoSans_Regular";
-    /* gap: 4.2vw; */
 }
 
 .decription_art{
@@ -1187,10 +1117,6 @@ footer{
     top: 40vw;
 }
 
-/* #hs1{color: #fff;
-cursor: url(../img/curs3.svg) 0 0, auto;} */
-/* #hs1:hover{ border-bottom: 0.1vw solid white;} */
-
 .vector{
     transition: opacity 0.3s ease;
     width: 1.46vw;
@@ -1199,9 +1125,6 @@ cursor: url(../img/curs3.svg) 0 0, auto;} */
     margin-top: -6vw;
     opacity: 1;
 }
-
-/* .mini_stream:hover .vector {
-    opacity: 1;} */
 
 .ps3{
     font-size: 1.18vw;
@@ -1212,7 +1135,6 @@ cursor: url(../img/curs3.svg) 0 0, auto;} */
     height: 70vw;
     background: rgb(11, 11, 11);
     position: relative;
-    /* z-index: -1; */
     display: flex;
     flex-direction: column;
     font-family: "CoFoSans_Regular";
@@ -1227,8 +1149,6 @@ cursor: url(../img/curs3.svg) 0 0, auto;} */
     margin-left: 3.9vw;
     margin-top: 1.81vw;
 }
-
-/* .ps5, .ps6{ font-size: 1.8vw;} */
 
 .ps4{
     font-size: 1.18vw;
@@ -1294,7 +1214,6 @@ cursor: url(../img/curs3.svg) 0 0, auto;} */
 
  .n1_v{
     position: absolute;
-    /* top: -2vw; */
     width: 53.19vw;
     height: 30vw;
  }
@@ -1310,7 +1229,6 @@ cursor: url(../img/curs3.svg) 0 0, auto;} */
 
  .n2_v{
     position: absolute;
-    /* top: -2vw; */
     width: 46vw;
     height: 25.9vw;
  }
@@ -1355,7 +1273,6 @@ cursor: url(../img/curs3.svg) 0 0, auto;} */
     position: relative;
     width: 100vw;
     height: 100vh;
-    /* background: #000000; */
     overflow: hidden;
 }
 
@@ -1373,7 +1290,6 @@ cursor: url(../img/curs3.svg) 0 0, auto;} */
 
 .ev_card{
     position: absolute;
-    /* background-color: #e8e8e8; */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -1384,11 +1300,13 @@ cursor: url(../img/curs3.svg) 0 0, auto;} */
 .ev_card_1{ top: 8vh;  left: 13vw;  width: 17vw; height: 25vw; opacity: 1; z-index: 3;}
 .ev_card_2{ top: 4vh;  left: 50vw; width: 13vw; height: 20vw; opacity: 0.55; z-index: 1; }
 .ev_card_3{ top: 10vh; left: 76vw; width: 16vw; height: 25vw; opacity: 0.75; z-index: 2;}
-.ev_card_4{ top: 35vh; left: 40vw; width: 18vw; height: 26vw; opacity: 0.95; z-index: 3;}
-.ev_card_5{ top: 48vh; left: 54vw; width: 15vw; height: 25vw; opacity: 0.75; z-index: 2;}
+.ev_card_4{ top: 35vh; left: 45vw; width: 18vw; height: 20vw; opacity: 0.95; z-index: 3;}
+.ev_card_5{ top: 48vh; left: 60vw; width: 15vw; height: 25vw; opacity: 0.75; z-index: 2;}
 .ev_card_6{ top: 58vh; left: 6vw; width: 23vw; height: 38vw; opacity: 1; z-index: 3;}
-/* .ev_card_7{ top: 58vh; left: 44vw; width: 14vw; height: 22vw; opacity: 0.75; z-index: 2;} */
 .ev_card_8{ top: 50vh; left: 80vw; width: 15vw; height: 25vw; opacity: 0.55; z-index: 1;}
+.ev_card_7{ top: 32vh; left: 4vw;  width: 14vw; height: 21vw; opacity: 0.7;  z-index: 2;}
+.ev_card_9{ top: 70vh; left: 32vw; width: 17vw; height: 26vw; opacity: 0.95; z-index: 1;}
+.ev_card_10{ top: 16vh; left: 33vw; width: 12vw; height: 18vw; opacity: 0.6;  z-index: 1;}
 
 .ev_card_1 > img{width: 17vw; height: 25vw;}
 .ev_card_2 > img{width: 13vw; height: 20vw;}
@@ -1397,8 +1315,9 @@ cursor: url(../img/curs3.svg) 0 0, auto;} */
 .ev_card_5 > img{width: 15vw; height: 25vw;}
 .ev_card_6 > img{width: 23vw; height: 38vw;}
 .ev_card_8 > img{width: 15vw; height: 25vw;}
-
-
+.ev_card_7 > img{width: 14vw; height: 21vw;}
+.ev_card_9 > img{width: 17vw; height: 26vw;}
+.ev_card_10 > img{width: 12vw; height: 18vw;}
 
 /* artists css */
 
@@ -1419,25 +1338,24 @@ cursor: url(../img/curs3.svg) 0 0, auto;} */
 .a_div{
     position: absolute;
     top: 10vw;
-    left: 4.17vw;
+    left: 3.17vw;
     display: flex;
     flex-direction: column;
     gap: 1.67vw;
-    z-index: 3;
+    z-index: 2;
 }
 
 .art{
-    font-size: 3.68vw;
+    font-size: 4.2vw;
     font-family: "Opsilon";
     color: #fff;
     opacity: 0.69;
     transition: font-size 0.3s ease, opacity 0.3s ease;
     margin: 0;
-    /* cursor: url(../img/curs3.svg) 0 0, auto; */
 }
 
 .art.active{
-    font-size: 4.51vw;
+    font-size: 5vw;
     opacity: 1;
 }
 
@@ -1453,45 +1371,30 @@ cursor: url(../img/curs3.svg) 0 0, auto;} */
     z-index: 1;
 }
 
-.artist_panel.active{
-    opacity: 1;
-}
+.artist_panel.active{ opacity: 1; pointer-events: auto; }
 
-.linear{
+.linear, .artist_video{
     position: absolute;
     margin-top: 30vw;
-    left: 60vw;
+    left: 67vw;
     transform: translate(-50%, -50%);
-    /* width: 56.2vw;
-    height: 38.89vw; */
-        width: 58vw;
-    height: 40vw;
+    width: 65vw;
+    height: 44vw;
     object-fit: cover;
     border-radius: 0.7vw;
-    z-index: 2;
+    cursor: url(../img/curs.svg) 0 0, auto;
+    pointer-events: auto
 }
 
-.artist_video{
-    position: absolute;
-    margin-top: 30vw;
-    left: 60vw;
-    transform: translate(-50%, -50%);
-    /* width: 56.11vw;
-    height: 38.89vw; */
-    width: 58vw;
-    height: 40vw;
-    object-fit: cover;
-    border-radius: 0.7vw;
-    color: #000;
-    z-index: 1;
-}
+.linear{ z-index: 2;}
+
+.artist_video{ z-index: 1;}
 
 .artist_desc{
-    text-shadow: 0 0 8px #1810b3;
     position: absolute;
-    top: 38%;
-    left: 65vw;
-    width: 33.54vw;
+    top: 68%;
+    left: 70vw;
+    width: 28vw;
     margin: 0;
     color: #fff;
     font-family: "CoFoSans_Regular";
@@ -1502,7 +1405,7 @@ cursor: url(../img/curs3.svg) 0 0, auto;} */
 
 .artist_feat{
     /* text-shadow: 0 0 8px #51cbee; */
-    position: absolute;
+    /* position: absolute;
     top: 40vw;
     left: 48vw;
     width: 40vw;
@@ -1511,7 +1414,8 @@ cursor: url(../img/curs3.svg) 0 0, auto;} */
     font-family: "CoFoSans_Regular";
     font-size: 1.2vw;
     line-height: 1.4;
-    z-index: 3;
+    z-index: 3; */
+    display: none;
 }
 
 /* payment.css */
@@ -1681,8 +1585,7 @@ cursor: url(../img/curs3.svg) 0 0, auto;} */
 }
 
 .pay_input_wrap{
-    position: relative;
-}
+    position: relative;}
 
 .pay_input_row{
     display: flex;
@@ -1751,7 +1654,6 @@ cursor: url(../img/curs3.svg) 0 0, auto;} */
 .pay_t{
     display: none;
     flex-direction: column;
-    /* background: #1c1c1c; */
     border: 0.1vw solid rgb(255, 255, 255);
     border-radius: 1vw;
     padding: 2.5vw 2.5vw 2vw;
@@ -1760,8 +1662,7 @@ cursor: url(../img/curs3.svg) 0 0, auto;} */
 }
 
 .pay_t.show{
-    display: flex;
-}
+    display: flex;}
 
 .pay_th1{
     font-size: 2.2vw;
@@ -1793,8 +1694,7 @@ cursor: url(../img/curs3.svg) 0 0, auto;} */
 }
 
 .pay_features > p{
-    margin: 0;
-}
+    margin: 0;}
 
 .pay_total{
     border-top: 0.07vw solid rgba(255,255,255,0.15);

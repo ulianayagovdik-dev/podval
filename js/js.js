@@ -374,6 +374,15 @@ if (sArtists1 && artistsSticky && artNames.length && artistPanels.length) {
 }
 
 
+// artists.html — клик по видео артиста (и по перекрывающей картинке .linear) переводит на 404.html
+document.querySelectorAll('.artist_video, .linear').forEach(el => {
+    el.style.cursor = 'url(../img/curs.svg) 0 0, auto';
+    el.addEventListener('click', () => {
+        window.location.href = './404.html';
+    });
+});
+
+
 // events.html — интерактивная доска: курсор сдвигает слои с разной скоростью (параллакс)
 const eventsBoard = document.querySelector('.events_board');
 const evCards = eventsBoard ? eventsBoard.querySelectorAll('.ev_card') : [];
