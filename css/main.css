@@ -336,6 +336,7 @@ h5{
 }
 
 #p1_1, #p2_1{
+    font-family: "CofoSans-Regular";
     border-radius: 0.7vw;
     color: #ffffff;
     display: flex;

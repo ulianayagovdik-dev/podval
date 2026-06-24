@@ -3,6 +3,8 @@
 // и события window.load, потом плавно уходит.
 (function initPreloader(){
     if (!document.body) { requestAnimationFrame(initPreloader); return; }
+    // на странице 404 прелоадер не нужен
+    if (document.querySelector('.s_error')) return;
 
     const pre = document.createElement('div');
     pre.id = 'preloader';
