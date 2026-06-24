@@ -589,21 +589,37 @@ h6{
 }
 
 .test{
+    color: #ffffff;
     position: absolute;
     padding-top: 1.2vw;
     padding-left: 31vw;
 }
 
 .test2{
+    color: #ffffff;
     position: absolute;
     padding-top: 1.2vw;
-    padding-left: 19.5vw;
+    padding-left: 19.2vw;
+}
+.test4{
+    color: rgb(1 11 50);
+    position: absolute;
+    padding-top: 1.2vw;
+    padding-left: 19.2vw;
+}
+
+.test5{
+    color: rgb(1 11 50);
+    position: absolute;
+    padding-top: 1.2vw;
+    padding-left: 19.2vw;
 }
 
 .test3{
+    color: rgb(1 11 50);
     position: absolute;
     padding-top: 1.2vw;
-    padding-left: 43vw;
+    padding-left: 42.6vw;
 }
 
 .testA{
@@ -883,7 +899,7 @@ footer{
     animation: linee 20s infinite linear;}
 
 .line2{
-    top: -14vw;
+    top: -10vw;
     animation: line 20s infinite linear;}
 
 @keyframes line {

@@ -639,7 +639,7 @@ footer{
 
 .main_shop{
     padding-top: 0vw;
-    height: 675vw;
+    height: 410vw;
 }
 
 .upperline{
@@ -652,47 +652,33 @@ footer{
     left: 0vw;
     top: 0vw;
     margin-top: 20vw;
+    display: none;
 
 }
 .underline{
     width: 100vw;
-    height: 200vw;
+    top: 20vw;
+    height: 380vw;
     display: flex;
     flex-direction: column;
     gap: 10vw;
     position: relative;
-    left: 0;
-}
-
-.i1 > img {
-    width: 68vw;
-    height: 100vw;
-}
-
-.i1{margin-left: 28vw;}
-.i2, .i4{margin-left: 1.8vw;}
-.i3{margin-left: 2.4vw;}
-.i5{margin-left: 32vw;}
-
-.i2 > img {
-    /* margin-left: 0vw; */
-    width: 95vw;
-    height: 150vw;
+    left: 5vw;
 }
 
 .i3 > img {
-    width: 55vw;
+    width: 75vw;
     height: 90vw;
 }
 
 .i4 > img {
-    width: 95vw;
+    width: 90vw;
     height: 150vw;
 }
 
 .i5 > img {
-    width: 65vw;
-    height: 80vw;
+    width: 75vw;
+    height: 90vw;
 }
 
 .pm{
@@ -702,41 +688,23 @@ footer{
 }
 
 .test{
-    position: absolute;
-    padding-top: 1.2vw;
-    padding-left: 40vw;
-}
-
-.test2{
-    position: absolute;
-    padding-top: 1.2vw;
-    padding-left: 53vw;
-}
+    color: rgb(255, 255, 255);}
 
 .test4{
+    color: rgb(1 11 50);
+    padding-left: 78vw;
+}
+
+.test4, .test, .test5{
     position: absolute;
     padding-top: 1.2vw;
-    padding-left: 80vw;
 }
+
+.test, .test5{
+    padding-left: 63vw;}
 
 .test5{
-    position: absolute;
-    padding-top: 1.2vw;
-    padding-left: 50vw;
-}
-
-.test3{
-    position: absolute;
-    padding-top: 1.2vw;
-    padding-left: 80vw;
-}
-
-.testA{
-    position: absolute;
-    margin-top: -2vw;
-    padding-left: 0.3vw;
-}
-
+    color: rgb(1 11 50);}
 
 /* events.html — вертикальный зиг-заг афиш, без глубины и параллакса */
 .events_board{
@@ -830,11 +798,12 @@ footer{
 }
 
 .pop_h{
-    margin: 6vw 0 0 !important;
+    margin: 4vw -1vw 0 !important;
     padding: 0 4vw;
-    font-size: 6vw !important;
+    font-size: 7vw !important;
     line-height: 1.15;
     text-align: center;
+    width: 80vw;
 }
 
 .div_in{
@@ -1308,7 +1277,7 @@ select{
 }
 
 .pay_header{
-    margin-bottom: 6vw !important;
+    margin-bottom: 8vw !important;
     gap: 3vw !important;
     align-items: flex-start !important;
 }
