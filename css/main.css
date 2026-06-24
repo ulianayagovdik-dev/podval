@@ -1,5 +1,53 @@
 *{ box-sizing: border-box;}
 
+/* Preloader — оверлей на весь экран, инжектится JS */
+#preloader{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #000;
+    z-index: 999999;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.5s ease;
+}
+
+.pre_text{
+    color: blue;
+    font-size: 15vw;
+    font-family: "Opsilon";
+    line-height: 1;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    animation: pre_font 0.7s infinite linear;
+}
+
+@keyframes pre_font {
+    0%   { font-family: "Opsilon"; }
+    25%  { font-family: "Inter_Regular"; }
+    50%  { font-family: "Unbouded_Bold"; }
+    75%  { font-family: "CoFoSans_Bold"; }
+    100% { font-family: "CoFoSans_Regular"; }
+}
+
+.pre_pct{
+    position: absolute;
+    bottom: 6vh;
+    color: #ffffff;
+    font-size: 1.5vw;
+    font-family: "CoFoSans_Regular";
+}
+
+@media screen and (max-width: 450px){
+    .pre_text{ font-size: 22vw; }
+    .pre_pct{ font-size: 4.5vw; bottom: 8vh; }
+}
+
+
 html, body{ 
     width: 100%;
     overflow-x: hidden;

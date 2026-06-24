@@ -1,3 +1,94 @@
+// Preloader — оверлей на весь экран с "PODVAL" и процентом загрузки.
+// Инжектится сразу, как только в DOM появится body, ждёт загрузки всех <img>/<video>
+// и события window.load, потом плавно уходит.
+(function initPreloader(){
+    if (!document.body) { requestAnimationFrame(initPreloader); return; }
+
+    const pre = document.createElement('div');
+    pre.id = 'preloader';
+    pre.innerHTML = '<div class="pre_text">PODVAL</div><div class="pre_pct">0%</div>';
+    document.body.insertBefore(pre, document.body.firstChild);
+
+    const pctEl = pre.querySelector('.pre_pct');
+    const prevOverflow = document.documentElement.style.overflow;
+    document.documentElement.style.overflow = 'hidden';
+
+    let displayPct = 0;
+    let windowLoaded = false;
+    let resources = [];
+    let loadedCount = 0;
+
+    const isLoaded = (r) => r.tagName === 'IMG'
+        ? (r.complete && r.naturalWidth !== 0) || r.complete
+        : r.readyState >= 3;
+
+    const trackResources = () => {
+        resources = [...document.images, ...document.querySelectorAll('video')];
+        resources.forEach(r => {
+            if (isLoaded(r)) {
+                loadedCount++;
+            } else {
+                const done = () => { loadedCount++; };
+                if (r.tagName === 'IMG') {
+                    r.addEventListener('load',  done, { once: true });
+                    r.addEventListener('error', done, { once: true });
+                } else {
+                    r.addEventListener('loadeddata', done, { once: true });
+                    r.addEventListener('error',      done, { once: true });
+                }
+            }
+        });
+    };
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', trackResources, { once: true });
+    } else {
+        trackResources();
+    }
+    // если window.load уже отработал до подписки — выставляем флаг сразу
+    if (document.readyState === 'complete') {
+        windowLoaded = true;
+    } else {
+        window.addEventListener('load', () => { windowLoaded = true; });
+    }
+    // safety: если что-то зависло (медиа не дослалось, ошибка в кэше и т.п.) — снимаем потолок через 6с
+    setTimeout(() => { windowLoaded = true; }, 6000);
+
+    const tick = () => {
+        const total = resources.length;
+        // пересчитываем загруженные ресурсы (на случай пропущенных load-событий)
+        if (total > 0) {
+            let cnt = 0;
+            for (const r of resources) if (isLoaded(r)) cnt++;
+            if (cnt > loadedCount) loadedCount = cnt;
+        }
+        // целевой процент: реальная загрузка ресурсов, но потолок 95% пока не пришёл window.load
+        let target;
+        if (windowLoaded) {
+            target = 100;
+        } else if (total > 0) {
+            target = Math.min(95, Math.round((loadedCount / total) * 100));
+        } else {
+            target = 60; // ещё ничего не знаем о ресурсах — плавно тянем до 60%
+        }
+
+        if (displayPct < target) displayPct = Math.min(target, displayPct + 1);
+        pctEl.textContent = Math.round(displayPct) + '%';
+
+        if (displayPct >= 100 && windowLoaded) {
+            pre.style.opacity = '0';
+            setTimeout(() => {
+                pre.remove();
+                document.documentElement.style.overflow = prevOverflow;
+            }, 500);
+            return;
+        }
+        requestAnimationFrame(tick);
+    };
+    tick();
+})();
+
+
 document.addEventListener('DOMContentLoaded', function(){
 
 
