@@ -1483,8 +1483,8 @@ select{
 /* Preloader — оверлей на весь экран, инжектится JS */
 
 .pre_pct{
-    bottom: 25vw;
-    font-size: 7vw;
+    bottom: 35vw;
+    font-size: 5vw;
 }
 
 
