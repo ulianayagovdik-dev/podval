@@ -1446,7 +1446,7 @@ select{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 20vw 6vw 8vw;
+    padding: 2vw 6vw 8vw;
     box-sizing: border-box;
 }
 
@@ -1461,7 +1461,7 @@ select{
 
 .p_er1{
     font-size: 5vw !important;
-    margin: 6vw 0 0 !important;
+    margin: 0vw 0 0 !important;
     padding: 0 !important;
     text-align: center;
     width: 90vw;
@@ -1478,6 +1478,13 @@ select{
     border-radius: 99vw;
     color: #fff !important;
     text-decoration: none;
+}
+
+/* Preloader — оверлей на весь экран, инжектится JS */
+
+.pre_pct{
+    bottom: 25vw;
+    font-size: 7vw;
 }
 
 

@@ -54,7 +54,7 @@
         window.addEventListener('load', () => { windowLoaded = true; });
     }
     // safety: если что-то зависло (медиа не дослалось, ошибка в кэше и т.п.) — снимаем потолок через 6с
-    setTimeout(() => { windowLoaded = true; }, 6000);
+    setTimeout(() => { windowLoaded = true; }, 8000);
 
     const tick = () => {
         const total = resources.length;
