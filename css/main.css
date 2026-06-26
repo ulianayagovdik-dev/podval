@@ -954,6 +954,8 @@ footer{
     position: relative;
     z-index: 2;
 }
+.pc_{
+    cursor: url(../img/curs3.svg) 0 0, auto;}
 
 .baby{
     position: absolute;
